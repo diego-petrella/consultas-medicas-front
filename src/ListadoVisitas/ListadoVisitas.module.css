@@ -1,0 +1,163 @@
+/* ListadoVisitas.module.css */
+
+/* Contenedor principal de la página (fondo gris claro) */
+.container {
+  background-color: #f4f6f9;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título principal (color azul oscuro estilo corporativo) */
+.title {
+  color: #003366;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de filtros (caja blanca con sombra) */
+.filters {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Inputs de texto y fecha */
+.input {
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 180px;
+}
+
+.input:focus {
+  border-color: #003366;
+}
+
+/* Select de obras sociales */
+.select {
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  outline: none;
+  min-width: 220px;
+  cursor: pointer;
+}
+
+/* Botón Primario (Filtrar) - Estilo Verde como en la imagen */
+.buttonPrimary {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonPrimary:hover {
+  background-color: #218838;
+}
+
+/* Botón Secundario (Limpiar) - Estilo gris */
+.buttonSecondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonSecondary:hover {
+  background-color: #5a6268;
+}
+
+/* Mensaje de carga */
+.loading {
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+  padding: 40px;
+}
+
+/* Contenedor de la tabla (caja blanca con sombra y bordes redondeados) */
+.tableWrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+/* Estilos de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+/* Encabezado de la tabla (fondo azul claro, texto azul oscuro) */
+.table th {
+  background-color: #e6f0fa;
+  color: #003366;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid #d1d5db;
+}
+
+/* Celdas de la tabla */
+.table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Filas al pasar el mouse */
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Botón de acción (Ver) - Estilo Azul similar al "Editar" de la imagen */
+.actionButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #0069d9;
+}
+
+/* Mensaje cuando no hay visitas */
+.emptyMessage {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-size: 15px;
+}
