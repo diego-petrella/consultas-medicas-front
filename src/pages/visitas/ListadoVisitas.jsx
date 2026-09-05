@@ -15,7 +15,7 @@ export default function ListadoVisitas() {
       setLoading(true);
       setError("");
       try {
-        const response = await fetch("http://localhost:8080/api/visitas");
+        const response = await fetch("http://localhost:8083/api/visitas");
         if (!response.ok) throw new Error("No se pudieron cargar las visitas.");
         const data = await response.json();
         if (!cancelado) setVisitas(data);
