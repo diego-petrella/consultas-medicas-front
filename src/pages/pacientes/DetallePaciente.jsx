@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { api } from "../../services/api";
 import ModalHistoriaClinica from "../../components/ModalHistoriaClinica";
+import FormularioPaciente from "./FormularioPaciente";
 import "./DetallePaciente.css";
 
 export default function DetallePaciente() {
@@ -15,33 +16,32 @@ export default function DetallePaciente() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [historiaSeleccionada, setHistoriaSeleccionada] = useState(null);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   const esDoctor = usuario?.role_id === 2;
 
-  useEffect(() => {
-    let cancelado = false;
-
-    async function cargarPaciente() {
-      setLoading(true);
-      setError("");
-      try {
-        const data = await api.get(`/pacientes/${id}/historial`);
-        if (!cancelado) {
-          setPaciente(data.paciente);
-          setHistorias(data.historias);
-        }
-      } catch (err) {
-        if (!cancelado) setError(err.message || "Ocurrió un error al cargar el paciente.");
-      } finally {
-        if (!cancelado) setLoading(false);
-      }
+  const cargarPaciente = useCallback(async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const data = await api.get(`/pacientes/${id}/historial`);
+      setPaciente(data.paciente);
+      setHistorias(data.historias);
+    } catch (err) {
+      setError(err.message || "Ocurrió un error al cargar el paciente.");
+    } finally {
+      setLoading(false);
     }
-
-    cargarPaciente();
-    return () => {
-      cancelado = true;
-    };
   }, [id]);
+
+  useEffect(() => {
+    cargarPaciente();
+  }, [cargarPaciente]);
+
+  function handleGuardado() {
+    setMostrarFormulario(false);
+    cargarPaciente();
+  }
 
   return (
     <div className="detalle-paciente-page">
@@ -52,30 +52,46 @@ export default function DetallePaciente() {
 
       {!loading && !error && paciente && (
         <>
-          <div className="detalle-paciente-card">
-            <div className="detalle-paciente-dato">
-              <span className="detalle-paciente-label">Paciente</span>
-              <span>{paciente.nombre} {paciente.apellido}</span>
-            </div>
-            <div className="detalle-paciente-dato">
-              <span className="detalle-paciente-label">DNI</span>
-              <span>{paciente.dni}</span>
-            </div>
-            <div className="detalle-paciente-dato">
-              <span className="detalle-paciente-label">Obra Social</span>
-              <span>{paciente.obra_social_nombre || "Sin obra social"}</span>
-            </div>
+          {mostrarFormulario ? (
+            <FormularioPaciente
+              paciente={paciente}
+              onGuardado={handleGuardado}
+              onCancelar={() => setMostrarFormulario(false)}
+            />
+          ) : (
+            <div className="detalle-paciente-card">
+              <div className="detalle-paciente-dato">
+                <span className="detalle-paciente-label">Paciente</span>
+                <span>{paciente.nombre} {paciente.apellido}</span>
+              </div>
+              <div className="detalle-paciente-dato">
+                <span className="detalle-paciente-label">DNI</span>
+                <span>{paciente.dni}</span>
+              </div>
+              <div className="detalle-paciente-dato">
+                <span className="detalle-paciente-label">Obra Social</span>
+                <span>{paciente.obra_social_nombre || "Sin obra social"}</span>
+              </div>
 
-            {esDoctor && (
               <button
                 type="button"
-                className="detalle-paciente-nueva-btn"
-                onClick={() => navigate(`/atencion/${id}`)}
+                className="detalle-paciente-editar-btn"
+                onClick={() => setMostrarFormulario(true)}
               >
-                Nueva Atención
+                Editar
               </button>
-            )}
-          </div>
+
+              {esDoctor && (
+                <button
+                  type="button"
+                  className="detalle-paciente-nueva-btn"
+                  onClick={() => navigate(`/atencion/${id}`)}
+                >
+                  Nueva Atención
+                </button>
+              )}
+            </div>
+          )}
 
           <h2 className="detalle-paciente-subtitle">Historial</h2>
 
