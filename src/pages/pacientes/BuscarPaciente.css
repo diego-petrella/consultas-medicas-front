@@ -1,0 +1,77 @@
+.buscar-paciente-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2a26;
+}
+
+.buscar-paciente-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  margin: 0 0 24px 0;
+}
+
+.buscar-paciente-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.buscar-paciente-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.buscar-paciente-label {
+  font-size: 12px;
+  color: #5c6b64;
+}
+
+.buscar-paciente-input {
+  border: 1px solid #d7e2de;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #1f2a26;
+}
+
+.buscar-paciente-input:focus {
+  outline: none;
+  border-color: #2f4a42;
+}
+
+.buscar-paciente-btn {
+  background: #2f4a42;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.buscar-paciente-btn:hover {
+  background: #243a34;
+}
+
+.buscar-paciente-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.buscar-paciente-msg {
+  font-size: 14px;
+  color: #5c6b64;
+}
+
+.buscar-paciente-msg--error {
+  color: #a33b2f;
+}
+
+.buscar-paciente-resultado {
+  margin-top: 16px;
+}
