@@ -5,6 +5,8 @@ import ListadoVisitas from "./pages/visitas/ListadoVisitas";
 import ListadoObrasSociales from "./pages/obras-sociales/ListadoObrasSociales";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
+import RutaProtegida from "./components/RutaProtegida";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -13,10 +15,46 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/visitas" element={<ListadoVisitas />} />
-          <Route path="/obras-sociales" element={<ListadoObrasSociales />} />
-          <Route path="/atencion/:pacienteId" element={<AtencionMedica />} />
-          <Route path="/pacientes/:id" element={<DetallePaciente />} />
+          <Route
+            path="/visitas"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <ListadoVisitas />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/obras-sociales"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <ListadoObrasSociales />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/atencion/:pacienteId"
+            element={
+              <RutaProtegida soloRol={2}>
+                <Layout>
+                  <AtencionMedica />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/pacientes/:id"
+            element={
+              <RutaProtegida>
+                <Layout>
+                  <DetallePaciente />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
