@@ -50,8 +50,22 @@
   color: #5c6b64;
 }
 
-.detalle-paciente-nueva-btn {
+.detalle-paciente-editar-btn {
   margin-left: auto;
+  background: none;
+  color: #2f4a42;
+  border: 1px solid #2f4a42;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.detalle-paciente-editar-btn:hover {
+  background: #dfeaf6;
+}
+
+.detalle-paciente-nueva-btn {
   background: #2f4a42;
   color: #ffffff;
   border: none;
