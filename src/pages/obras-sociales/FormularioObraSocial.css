@@ -1,0 +1,76 @@
+.formulario-obra-social {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  background: #f7f8f6;
+  border: 1px solid #d7e2de;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.formulario-obra-social-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.formulario-obra-social-label {
+  font-size: 12px;
+  color: #5c6b64;
+}
+
+.formulario-obra-social-input {
+  border: 1px solid #d7e2de;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #1f2a26;
+}
+
+.formulario-obra-social-input:focus {
+  outline: none;
+  border-color: #2f4a42;
+}
+
+.formulario-obra-social-error {
+  color: #a33b2f;
+  font-size: 13px;
+  margin: 0;
+}
+
+.formulario-obra-social-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.formulario-obra-social-btn {
+  background: #2f4a42;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.formulario-obra-social-btn:hover {
+  background: #243a34;
+}
+
+.formulario-obra-social-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.formulario-obra-social-btn--secundario {
+  background: none;
+  color: #5c6b64;
+  border: 1px solid #d7e2de;
+}
+
+.formulario-obra-social-btn--secundario:hover {
+  background: #eef1ef;
+}
