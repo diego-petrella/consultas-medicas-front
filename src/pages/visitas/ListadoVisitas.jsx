@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 import "./ListadoVisitas.css";
 
 export default function ListadoVisitas() {
@@ -15,9 +16,7 @@ export default function ListadoVisitas() {
       setLoading(true);
       setError("");
       try {
-        const response = await fetch("http://localhost:8083/api/visitas");
-        if (!response.ok) throw new Error("No se pudieron cargar las visitas.");
-        const data = await response.json();
+        const data = await api.get("/visitas");
         if (!cancelado) setVisitas(data);
       } catch (err) {
         if (!cancelado) setError(err.message || "Ocurrió un error al cargar las visitas.");
@@ -37,8 +36,7 @@ export default function ListadoVisitas() {
     if (!confirmar) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/api/visitas/${id}`, { method: "DELETE" });
-      if (!response.ok) throw new Error("No se pudo eliminar la visita.");
+      await api.delete(`/visitas/${id}`);
       setVisitas((prev) => prev.filter((v) => v.id !== id));
     } catch (err) {
       alert(err.message || "Ocurrió un error al eliminar la visita.");
