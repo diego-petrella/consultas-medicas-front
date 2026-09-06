@@ -3,11 +3,13 @@ const API_URL = import.meta.env.VITE_API_URL
 async function request(path, options = {}) {
   const res = await fetch(`${API_URL}${path}`, {
     headers: { 'Content-Type': 'application/json', ...options.headers },
+    credentials: 'include',
     ...options,
   })
 
   if (!res.ok) {
-    throw new Error(`API error ${res.status}: ${res.statusText}`)
+    const body = await res.json().catch(() => null)
+    throw new Error(body?.error || `API error ${res.status}: ${res.statusText}`)
   }
 
   if (res.status === 204) return null

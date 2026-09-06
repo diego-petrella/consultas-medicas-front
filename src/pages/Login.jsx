@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { api } from "../services/api";
 import "./Login.css";
 
 export default function Login() {
@@ -20,18 +21,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8082/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => null);
-        throw new Error(data?.message || "Usuario o contraseña incorrectos.");
-      }
-
-      const datos = await response.json();
+      const datos = await api.post("/login", { username, password });
       login(datos);
 
       navigate(datos.role_id === 1 ? "/visitas" : "/pacientes");
