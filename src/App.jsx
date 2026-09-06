@@ -5,6 +5,7 @@ import ListadoVisitas from "./pages/visitas/ListadoVisitas";
 import ListadoObrasSociales from "./pages/obras-sociales/ListadoObrasSociales";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
+import BuscarPaciente from "./pages/pacientes/BuscarPaciente";
 import RutaProtegida from "./components/RutaProtegida";
 import Layout from "./components/Layout";
 
@@ -41,6 +42,16 @@ function App() {
               <RutaProtegida soloRol={2}>
                 <Layout>
                   <AtencionMedica />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/pacientes"
+            element={
+              <RutaProtegida>
+                <Layout>
+                  <BuscarPaciente />
                 </Layout>
               </RutaProtegida>
             }

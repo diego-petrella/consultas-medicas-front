@@ -48,16 +48,17 @@ export default function FormularioPaciente({ paciente, onGuardado, onCancelar })
           telefono: telefono.trim() || undefined,
           obra_social_id: Number(obraSocialId),
         });
+        onGuardado(paciente.id);
       } else {
-        await api.post("/pacientes", {
+        const creado = await api.post("/pacientes", {
           dni,
           nombre,
           apellido,
           telefono: telefono.trim() || undefined,
           obra_social_id: Number(obraSocialId),
         });
+        onGuardado(creado.id);
       }
-      onGuardado();
     } catch (err) {
       setError(err.message || "Ocurrió un error al guardar el paciente.");
     } finally {

@@ -74,11 +74,18 @@ export default function ListadoVisitas() {
                 visitas.map((v) => (
                   <tr key={v.id}>
                     <td>{v.fecha}</td>
-                    <td>{v.dni}</td>
-                    <td>{v.paciente}</td>
-                    <td>{v.doctor}</td>
-                    <td>{v.obraSocial}</td>
+                    <td>{v.pacienteDni}</td>
+                    <td>{v.pacienteNombre} {v.pacienteApellido}</td>
+                    <td>{v.doctorNombre} {v.doctorApellido}</td>
+                    <td>{v.obraSocialNombre || "Sin obra social"}</td>
                     <td className="visitas-td--actions">
+                      <button
+                        type="button"
+                        className="visitas-action-btn"
+                        onClick={() => navigate(`/pacientes/${v.pacienteId}`)}
+                      >
+                        Ver paciente
+                      </button>
                       <button
                         type="button"
                         className="visitas-action-btn"
