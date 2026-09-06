@@ -1,0 +1,71 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.layout-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #1e293b;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.layout-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.layout-menu-item {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+.layout-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.layout-menu-item--activo {
+  background: #2563eb;
+}
+
+.layout-usuario {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.layout-usuario-nombre {
+  font-size: 14px;
+}
+
+.layout-usuario-rol {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.layout-cerrar-btn {
+  width: 100%;
+  background: none;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.layout-cerrar-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.layout-contenido {
+  flex: 1;
+  min-width: 0;
+}
