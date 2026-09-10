@@ -44,6 +44,7 @@ export default function FormularioObraSocial({ obraSocial, onGuardado, onCancela
           onChange={(e) => setNombre(e.target.value)}
           className="formulario-obra-social-input"
           autoFocus
+          placeholder="ingrese una obra social"
         />
       </div>
 

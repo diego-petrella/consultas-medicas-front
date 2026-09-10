@@ -19,7 +19,7 @@
 
 .formulario-obra-social-label {
   font-size: 12px;
-  color: #5c6b64;
+  color: #0c0d0d;
 }
 
 .formulario-obra-social-input {
@@ -27,7 +27,7 @@
   border-radius: 6px;
   padding: 8px 10px;
   font-size: 14px;
-  color: #1f2a26;
+  color: #dde7e3;
 }
 
 .formulario-obra-social-input:focus {
