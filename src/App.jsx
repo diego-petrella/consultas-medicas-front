@@ -2,7 +2,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import ListadoVisitas from "./pages/visitas/ListadoVisitas";
+import FormularioVisita from "./pages/visitas/FormularioVisita";
+import ListadoDoctores from "./pages/doctores/ListadoDoctores";
 import ListadoObrasSociales from "./pages/obras-sociales/ListadoObrasSociales";
+import GestionUsuarios from "./pages/admin/GestionUsuarios";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
 import BuscarPaciente from "./pages/pacientes/BuscarPaciente";
@@ -16,12 +19,43 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
+
           <Route
             path="/visitas"
             element={
               <RutaProtegida soloRol={1}>
                 <Layout>
                   <ListadoVisitas />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/visitas/nueva"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <FormularioVisita />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/visitas/editar/:id"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <FormularioVisita />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/doctores"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <ListadoDoctores />
                 </Layout>
               </RutaProtegida>
             }
@@ -37,6 +71,17 @@ function App() {
             }
           />
           <Route
+            path="/admin/usuarios"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <GestionUsuarios />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+
+          <Route
             path="/atencion/:pacienteId"
             element={
               <RutaProtegida soloRol={2}>
@@ -46,6 +91,7 @@ function App() {
               </RutaProtegida>
             }
           />
+
           <Route
             path="/pacientes"
             element={
@@ -66,6 +112,8 @@ function App() {
               </RutaProtegida>
             }
           />
+
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
