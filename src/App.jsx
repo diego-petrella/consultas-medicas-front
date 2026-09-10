@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import ListadoVisitas from "./pages/visitas/ListadoVisitas";
 import FormularioVisita from "./pages/visitas/FormularioVisita";
 import ListadoDoctores from "./pages/doctores/ListadoDoctores";
+import FormularioDoctor from "./pages/doctores/FormularioDoctor";
 import ListadoObrasSociales from "./pages/obras-sociales/ListadoObrasSociales";
 import GestionUsuarios from "./pages/admin/GestionUsuarios";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
@@ -56,6 +57,26 @@ function App() {
               <RutaProtegida soloRol={1}>
                 <Layout>
                   <ListadoDoctores />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/doctores/nuevo"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <FormularioDoctor />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/doctores/editar/:id"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <FormularioDoctor />
                 </Layout>
               </RutaProtegida>
             }
