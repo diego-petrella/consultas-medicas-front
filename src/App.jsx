@@ -8,6 +8,7 @@ import ListadoDoctores from "./pages/doctores/ListadoDoctores";
 import FormularioDoctor from "./pages/doctores/FormularioDoctor";
 import ListadoObrasSociales from "./pages/obras-sociales/ListadoObrasSociales";
 import GestionUsuarios from "./pages/admin/GestionUsuarios";
+import Estadisticas from "./pages/estadisticas/Estadisticas";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
 import BuscarPaciente from "./pages/pacientes/BuscarPaciente";
@@ -99,6 +100,16 @@ function App() {
               <RutaProtegida soloRol={1}>
                 <Layout>
                   <GestionUsuarios />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/estadisticas"
+            element={
+              <RutaProtegida soloRol={1}>
+                <Layout>
+                  <Estadisticas />
                 </Layout>
               </RutaProtegida>
             }

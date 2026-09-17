@@ -9,6 +9,7 @@ const MENU_ADMINISTRATIVO = [
   { to: "/obras-sociales", label: "Obras Sociales" },
   { to: "/admin/usuarios", label: "Usuarios" },
   { to: "/pacientes/listado", label: "Pacientes" },
+  { to: "/estadisticas", label: "Estadísticas" },
 ];
 
 const MENU_COLABORADOR = [
