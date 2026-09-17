@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import ListadoVisitas from "./pages/visitas/ListadoVisitas";
+import MisVisitas from "./pages/visitas/MisVisitas";
 import FormularioVisita from "./pages/visitas/FormularioVisita";
 import ListadoDoctores from "./pages/doctores/ListadoDoctores";
 import FormularioDoctor from "./pages/doctores/FormularioDoctor";
@@ -11,6 +12,7 @@ import Estadisticas from "./pages/estadisticas/Estadisticas";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
 import BuscarPaciente from "./pages/pacientes/BuscarPaciente";
+import ListadoPacientes from "./pages/pacientes/ListadoPacientes";
 import RutaProtegida from "./components/RutaProtegida";
 import Layout from "./components/Layout";
 
@@ -114,7 +116,18 @@ function App() {
           />
 
           <Route
-            path="/atencion/:pacienteId"
+            path="/mis-visitas"
+            element={
+              <RutaProtegida soloRol={2}>
+                <Layout>
+                  <MisVisitas />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+
+          <Route
+            path="/atencion/:pacienteId/:visitaId?"
             element={
               <RutaProtegida soloRol={2}>
                 <Layout>
@@ -140,6 +153,16 @@ function App() {
               <RutaProtegida>
                 <Layout>
                   <DetallePaciente />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/pacientes/listado"
+            element={
+              <RutaProtegida>
+                <Layout>
+                  <ListadoPacientes />
                 </Layout>
               </RutaProtegida>
             }

@@ -79,6 +79,26 @@
   background: #243a34;
 }
 
+.detalle-paciente-historial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.detalle-paciente-historial-header .detalle-paciente-subtitle {
+  margin: 32px 0 16px 0;
+}
+
+.detalle-paciente-pdf-link {
+  font-size: 13px;
+  color: #2f4a42;
+}
+
+.detalle-paciente-pdf-link:hover {
+  text-decoration: underline;
+}
+
 .detalle-paciente-table-wrapper {
   overflow-x: auto;
   border: 1px solid #d7e2de;

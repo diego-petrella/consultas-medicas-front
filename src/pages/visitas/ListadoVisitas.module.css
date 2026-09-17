@@ -118,6 +118,10 @@
   background-color: #f9fafb;
 }
 
+.clickableRow {
+  cursor: pointer;
+}
+
 .actionButtonEdit {
   background-color: #007bff;
   color: white;

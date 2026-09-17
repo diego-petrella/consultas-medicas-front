@@ -4,7 +4,7 @@ import { api } from "../../services/api";
 import "./AtencionMedica.css";
 
 export default function AtencionMedica() {
-  const { pacienteId } = useParams();
+  const { pacienteId, visitaId } = useParams();
   const navigate = useNavigate();
 
   const [paciente, setPaciente] = useState(null);
@@ -47,6 +47,7 @@ export default function AtencionMedica() {
     try {
       await api.post("/historias-clinicas", {
         paciente_id: Number(pacienteId),
+        visita_id: visitaId ? Number(visitaId) : undefined,
         diagnostico,
         tratamiento,
         observaciones: observaciones.trim() || undefined,
