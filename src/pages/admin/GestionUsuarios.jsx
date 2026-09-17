@@ -73,7 +73,7 @@ export default function GestionUsuarios() {
       await api.delete(`/users/${id}`);
       setUsuarios((prev) => prev.filter((u) => u.id !== id));
     } catch (err) {
-      alert(err.message || "Ocurrió un error al eliminar el usuario.");
+      setError(err.message || "Ocurrió un error al eliminar el usuario.");
     }
   }
 

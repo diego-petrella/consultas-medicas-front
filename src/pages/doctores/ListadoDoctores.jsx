@@ -39,7 +39,7 @@ export default function ListadoDoctores() {
       await api.delete(`/doctores/${id}`);
       setDoctores((prev) => prev.filter((d) => d.id !== id));
     } catch (err) {
-      alert(err.message || "Ocurrió un error al eliminar el doctor.");
+      setError(err.message || "Ocurrió un error al eliminar el doctor.");
     }
   }
 
