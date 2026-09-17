@@ -12,6 +12,7 @@ const MENU_ADMINISTRATIVO = [
 ];
 
 const MENU_COLABORADOR = [
+  { to: "/mis-visitas", label: "Mis Visitas" },
   { to: "/pacientes", label: "Pacientes" },
   { to: "/pacientes/listado", label: "Listado de Pacientes" },
 ];

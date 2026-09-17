@@ -1,0 +1,70 @@
+.container {
+  background-color: #f4f6f9;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  color: #003366;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tableWrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.actionsCell {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.table th {
+  background-color: #e6f0fa;
+  color: #003366;
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid #d1d5db;
+}
+
+.table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 14px;
+  color: #333;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.actionButtonAtender {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.actionButtonAtender:hover { background-color: #218838; }
+
+.loading, .emptyMessage {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
