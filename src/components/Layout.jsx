@@ -8,9 +8,13 @@ const MENU_ADMINISTRATIVO = [
   { to: "/doctores", label: "Doctores" },
   { to: "/obras-sociales", label: "Obras Sociales" },
   { to: "/admin/usuarios", label: "Usuarios" },
+  { to: "/pacientes/listado", label: "Pacientes" },
 ];
 
-const MENU_COLABORADOR = [{ to: "/pacientes", label: "Pacientes" }];
+const MENU_COLABORADOR = [
+  { to: "/pacientes", label: "Pacientes" },
+  { to: "/pacientes/listado", label: "Listado de Pacientes" },
+];
 
 export default function Layout({ children }) {
   const { usuario, logout } = useAuth();

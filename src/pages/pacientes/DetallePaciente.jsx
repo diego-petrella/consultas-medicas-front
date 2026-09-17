@@ -93,7 +93,17 @@ export default function DetallePaciente() {
             </div>
           )}
 
-          <h2 className="detalle-paciente-subtitle">Historial</h2>
+          <div className="detalle-paciente-historial-header">
+            <h2 className="detalle-paciente-subtitle">Historial</h2>
+            <a
+              className="detalle-paciente-pdf-link"
+              href={`${import.meta.env.VITE_API_URL}/pacientes/${id}/historial/pdf`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Descargar historial completo
+            </a>
+          </div>
 
           {historias.length === 0 ? (
             <p className="detalle-paciente-msg">Este paciente no tiene consultas registradas.</p>
