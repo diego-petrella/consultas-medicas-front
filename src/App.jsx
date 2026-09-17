@@ -10,6 +10,7 @@ import GestionUsuarios from "./pages/admin/GestionUsuarios";
 import AtencionMedica from "./pages/atencion/AtencionMedica";
 import DetallePaciente from "./pages/pacientes/DetallePaciente";
 import BuscarPaciente from "./pages/pacientes/BuscarPaciente";
+import ListadoPacientes from "./pages/pacientes/ListadoPacientes";
 import RutaProtegida from "./components/RutaProtegida";
 import Layout from "./components/Layout";
 
@@ -129,6 +130,16 @@ function App() {
               <RutaProtegida>
                 <Layout>
                   <DetallePaciente />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/pacientes/listado"
+            element={
+              <RutaProtegida>
+                <Layout>
+                  <ListadoPacientes />
                 </Layout>
               </RutaProtegida>
             }

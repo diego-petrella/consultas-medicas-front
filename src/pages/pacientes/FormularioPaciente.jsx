@@ -8,6 +8,7 @@ export default function FormularioPaciente({ paciente, onGuardado, onCancelar })
   const [dni, setDni] = useState(paciente?.dni ?? "");
   const [nombre, setNombre] = useState(paciente?.nombre ?? "");
   const [apellido, setApellido] = useState(paciente?.apellido ?? "");
+  const [fechaNacimiento, setFechaNacimiento] = useState(paciente?.fecha_nacimiento ?? "");
   const [telefono, setTelefono] = useState(paciente?.telefono ?? "");
   const [obraSocialId, setObraSocialId] = useState(paciente?.obra_social_id ?? "");
   const [obrasSociales, setObrasSociales] = useState([]);
@@ -45,6 +46,7 @@ export default function FormularioPaciente({ paciente, onGuardado, onCancelar })
         await api.put(`/pacientes/${paciente.id}`, {
           nombre,
           apellido,
+          fecha_nacimiento: fechaNacimiento || undefined,
           telefono: telefono.trim() || undefined,
           obra_social_id: Number(obraSocialId),
         });
@@ -54,6 +56,7 @@ export default function FormularioPaciente({ paciente, onGuardado, onCancelar })
           dni,
           nombre,
           apellido,
+          fecha_nacimiento: fechaNacimiento || undefined,
           telefono: telefono.trim() || undefined,
           obra_social_id: Number(obraSocialId),
         });
@@ -105,6 +108,19 @@ export default function FormularioPaciente({ paciente, onGuardado, onCancelar })
           type="text"
           value={apellido}
           onChange={(e) => setApellido(e.target.value)}
+          className="formulario-paciente-input"
+        />
+      </div>
+
+      <div className="formulario-paciente-field">
+        <label className="formulario-paciente-label" htmlFor="fecha-nacimiento-paciente">
+          Fecha de nacimiento
+        </label>
+        <input
+          id="fecha-nacimiento-paciente"
+          type="date"
+          value={fechaNacimiento}
+          onChange={(e) => setFechaNacimiento(e.target.value)}
           className="formulario-paciente-input"
         />
       </div>
