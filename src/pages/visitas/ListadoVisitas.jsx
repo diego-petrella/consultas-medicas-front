@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
+import ModalDetalleVisita from "../../components/ModalDetalleVisita";
 import styles from "./ListadoVisitas.module.css";
 
 export default function ListadoVisitas() {
@@ -16,6 +17,7 @@ export default function ListadoVisitas() {
   const [visitas, setVisitas] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [visitaSeleccionadaId, setVisitaSeleccionadaId] = useState(null);
 
   useEffect(() => {
     async function cargarObrasSociales() {
@@ -77,7 +79,7 @@ export default function ListadoVisitas() {
       await api.delete(`/visitas/${id}`);
       fetchVisitas(filtros);
     } catch (err) {
-      alert(err.message || "Error al borrar la visita");
+      setError(err.message || "Error al borrar la visita");
     }
   }
 
@@ -141,7 +143,7 @@ export default function ListadoVisitas() {
                 </tr>
               ) : (
                 visitas.map((v) => (
-                  <tr key={v.id}>
+                  <tr key={v.id} onClick={() => setVisitaSeleccionadaId(v.id)} className={styles.clickableRow}>
                     <td>{v.pacienteDni}</td>
                     <td>
                       {v.pacienteNombre} {v.pacienteApellido}
@@ -152,13 +154,31 @@ export default function ListadoVisitas() {
                     <td>{v.obraSocialNombre || "Sin obra social"}</td>
                     <td>{v.fecha}</td>
                     <td className={styles.actionsCell}>
-                      <button className={styles.actionButtonVer} onClick={() => navigate(`/pacientes/${v.pacienteId}`)}>
+                      <button
+                        className={styles.actionButtonVer}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/pacientes/${v.pacienteId}`);
+                        }}
+                      >
                         Ver paciente
                       </button>
-                      <button className={styles.actionButtonEdit} onClick={() => navigate(`/visitas/editar/${v.id}`)}>
+                      <button
+                        className={styles.actionButtonEdit}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/visitas/editar/${v.id}`);
+                        }}
+                      >
                         Editar
                       </button>
-                      <button className={styles.actionButtonDelete} onClick={() => handleBorrar(v.id)}>
+                      <button
+                        className={styles.actionButtonDelete}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleBorrar(v.id);
+                        }}
+                      >
                         Borrar
                       </button>
                     </td>
@@ -168,6 +188,13 @@ export default function ListadoVisitas() {
             </tbody>
           </table>
         </div>
+      )}
+
+      {visitaSeleccionadaId && (
+        <ModalDetalleVisita
+          visitaId={visitaSeleccionadaId}
+          onCerrar={() => setVisitaSeleccionadaId(null)}
+        />
       )}
     </div>
   );
