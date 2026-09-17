@@ -1,0 +1,100 @@
+.estadisticas-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2a26;
+}
+
+.estadisticas-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  margin: 0 0 24px;
+}
+
+.estadisticas-msg {
+  font-size: 14px;
+  color: #5c6b64;
+}
+
+.estadisticas-msg--error {
+  color: #a33b2f;
+}
+
+.estadisticas-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.estadisticas-card {
+  background: #ffffff;
+  border: 1px solid #d7e2de;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.estadisticas-card-valor {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  color: #2f4a42;
+}
+
+.estadisticas-card-label {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #5c6b64;
+}
+
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.estadisticas-panel {
+  background: #ffffff;
+  border: 1px solid #d7e2de;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.estadisticas-panel-title {
+  font-size: 14px;
+  color: #5c6b64;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.estadisticas-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.estadisticas-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eef1ef;
+  font-size: 14px;
+}
+
+.estadisticas-item:last-child {
+  border-bottom: none;
+}
+
+.estadisticas-item-cantidad {
+  font-weight: 600;
+  color: #2f4a42;
+}
+
+.estadisticas-empty {
+  text-align: center;
+  color: #8a968f;
+  padding: 16px 0;
+}
