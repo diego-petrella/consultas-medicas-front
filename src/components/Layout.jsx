@@ -10,7 +10,10 @@ const MENU_ADMINISTRATIVO = [
   { to: "/admin/usuarios", label: "Usuarios" },
 ];
 
-const MENU_COLABORADOR = [{ to: "/pacientes", label: "Pacientes" }];
+const MENU_COLABORADOR = [
+  { to: "/mis-visitas", label: "Mis Visitas" },
+  { to: "/pacientes", label: "Pacientes" },
+];
 
 export default function Layout({ children }) {
   const { usuario, logout } = useAuth();

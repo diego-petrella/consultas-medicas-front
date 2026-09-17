@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import ListadoVisitas from "./pages/visitas/ListadoVisitas";
+import MisVisitas from "./pages/visitas/MisVisitas";
 import FormularioVisita from "./pages/visitas/FormularioVisita";
 import ListadoDoctores from "./pages/doctores/ListadoDoctores";
 import FormularioDoctor from "./pages/doctores/FormularioDoctor";
@@ -103,7 +104,18 @@ function App() {
           />
 
           <Route
-            path="/atencion/:pacienteId"
+            path="/mis-visitas"
+            element={
+              <RutaProtegida soloRol={2}>
+                <Layout>
+                  <MisVisitas />
+                </Layout>
+              </RutaProtegida>
+            }
+          />
+
+          <Route
+            path="/atencion/:pacienteId/:visitaId?"
             element={
               <RutaProtegida soloRol={2}>
                 <Layout>
